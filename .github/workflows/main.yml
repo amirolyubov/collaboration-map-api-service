@@ -6,8 +6,8 @@ on:
 
 env: 
   REGISTRY: "registry.digitalocean.com/henar"
-  IMAGE_NAME: "henar-backend"
-  CONTAINER_NAME: "henar-backend"
+  IMAGE_NAME: "cm-api"
+  CONTAINER_NAME: "cm-api"
 
 jobs:
   build:
