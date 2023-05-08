@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 env: 
-  REGISTRY: "registry.digitalocean.com/henar"
+  REGISTRY: "registry.digitalocean.com/maps"
   IMAGE_NAME: "cm-api"
   CONTAINER_NAME: "cm-api"
 
