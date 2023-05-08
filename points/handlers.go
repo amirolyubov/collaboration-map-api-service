@@ -16,7 +16,9 @@ func GetPoints(c *fiber.Ctx) error {
 	user := c.Query("user")
 
 	if (len(chat) > 0 && len(user) > 0) {
-		return c.SendString("you cannot use chat and user together");
+		return c.Status(http.StatusInternalServerError).SendString("you cannot use chat and user together");
+	} else if (len(chat) == 0 && len(user) == 0) {
+		return c.Status(http.StatusInternalServerError).SendString("you need to provide chat or user");
 	} else {
 		if (len(chat) > 0) {
 			return getPointsByChat(c)
@@ -24,8 +26,8 @@ func GetPoints(c *fiber.Ctx) error {
 		if (len(user) > 0) {
 			return getPointsByUser(c)
 		}
-		return c.SendString("poop")
 	}
+	return nil
 }
 
 func getPointsByUser(c *fiber.Ctx) error {
